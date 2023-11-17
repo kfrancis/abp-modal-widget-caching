@@ -1,11 +1,17 @@
 ﻿(function ($) {
     abp.widgets.MySimpleWidget = function ($widget) {
         let widgetManager = $widget.data('abp-widget-manager');
-        let $commentArea = $widget.find('.comment');
 
+        /*
+        * Automatically called because AutoInitialize = true on the ViewComponent
+        */
         function init() {
+            setComment($widget);
+        }
+
+        function setComment($container) {
             // append the current date/time to the comment area
-            $commentArea.append(new Date().toLocaleString());
+            $widget.find('.widgetContent').text(new Date().toLocaleString());
         }
 
         return {

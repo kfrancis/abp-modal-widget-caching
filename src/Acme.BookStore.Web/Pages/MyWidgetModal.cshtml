@@ -1,0 +1,14 @@
+﻿@page "/MyWidgetModal"
+@using Acme.BookStore.Localization
+@using Acme.BookStore.Web.Pages.Components.MySimpleWidget
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<BookStoreResource> L
+@model Acme.BookStore.Web.Pages.Components.MySimpleWidget.DefaultModel
+@{
+}
+<form data-ajaxForm="true" asp-page="/MyWidgetModal" autocomplete="off" data-check-form-on-close="false">
+    <abp-modal scrollable="true" size="Large">
+        <abp-modal-header title="@L["Widget in a Modal"].Value"></abp-modal-header>
+        @await Component.InvokeAsync(typeof(MySimpleWidgetViewComponent))
+    </abp-modal>
+</form>
